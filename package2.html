@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vacation Packages</title>
+    <link rel="stylesheet" type="text/css" href="layout.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+    
+      $(document).ready(function(){
+                var vacation =  $(this).closest('.vacation')
+                var amount = vacation.data('price');
+                var price = $('<p>From $'+amount+'</p>');
+                vacation.append(price);
+                $(this).remove();           
+            
+            $('.vacation').on('keyup', '.quantity', function(){
+            var price = $(this).closest('.vacation').data('price');
+            var quantity = $(this).val();
+            $('#total').text(price * quantity);            
+      })}); 
+    </script>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Vacations</legend>
+      <h1>Vacation Packages</h1>
+      <h3>jQuery Travels</h3>
+      <div id="vacations">
+        <ul>
+          <li class="vacation" data-price='111.11'>
+            <h2>Hawaiian Vacation</h2>
+            <p>Comments on this deal:</p>
+            <ul class="comments">
+              <li>"Amazing Deal!"</li>
+              <li>"하나에 111.11달러, "</li>       
+            </ul>
+            <p><input type='number' class='quantity' value='1' /></p>
+            <p>가격 $<span id='total'>111.11</span></p>
+          </li>
+        </ul>
+        <ul>
+            <li class='vacation Olando' data-price='222.22'>
+              <h2>Olando</h2>
+              <p>Comments on this deal:</p>
+              <ul class="comments">
+                <li>There aren't any comments on this deal yet.</li>
+              </ul>
+              <div>
+                <button>GET PRICE</button>
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li class='vacation' data-price="333.33">
+              <h2>Visit Japan</h2>
+              <p>Comments on this deal:</p>
+              <ul class="comments">
+                <li>"Never been, but can't wait!</li>
+                <li>&nbsp;</li>
+              </ul>
+              <button>GET PRICE</button>
+            </li>
+          </ul>
+    </fieldset>    
+    <p class="call">Call us at 555-2593 to make a reservation today!</p>
+ 
+  </body>
+</html>
